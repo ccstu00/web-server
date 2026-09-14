@@ -23,6 +23,7 @@ app.get("/portfolio", (req, res) => {
 
 //Unit 02: filtering with query strings
 //use git pull to pull all the projects from the repo
+//git status to check what isnt/is in queue to upload to repo
 app.get("/projects", (req, res) => {
   const tag = req.query.tag;
   const result = projects.filter((project) => project.tag === tag);
