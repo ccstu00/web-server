@@ -1,9 +1,13 @@
 import express from "express";
 
-const app = express(); //not sure what 'implicitly discloses version' means lol
+const app = express();
+app.set("view engine", "ejs");
 
 const PORT = 3000;
 
+app.get("/about", (req, res) => {
+  res.render("about", { title: "About" });
+});
 app.get("/", (req, res) => {
   res.send("Hello, web!");
 });
