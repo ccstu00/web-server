@@ -19,6 +19,15 @@ app.get("/entries", (req, res) => {
   res.render("entries", { title: "My Notes", entries });
 });
 
+app.get("/about", (req, res) => {
+  const entries = [
+    { title: "First note", body: "Notes from the first session." },
+    { title: "Second note", body: "Notes from the second session." },
+    { title: "Third note", body: "Notes from the third session." },
+  ];
+  res.render("entries", { title: "My Notes", entries });
+});
+
 app.use((req, res) => {
   res.status(404).send("Page not found.");
 });
