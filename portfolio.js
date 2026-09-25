@@ -9,6 +9,35 @@ const projects = [
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
+const wishlist = [];
+
+app.post('/wishlist', (req, res) => {
+  const { item, note } = req.body;
+    if (!title || !body) {
+    res.status(400).json({ error: 'title and body are required' });
+    return;
+  }
+  const newItem = { item, note };
+  wishlist.push(newItem);
+  res.status(201).json(newItem);
+
+    
+});
+
+app.post('/recommended', (req, res) => {
+  const { viral, foryou } = req.body;
+    if (!title || !body) {
+    res.status(400).json({ error: 'title and body are required' });
+    return;
+  }
+  const newItem = { item, note };
+  wishlist.push(newItem);
+  res.status(201).json(newItem);
+});
+
+
 app.get("/", (req, res) => {
   res.send("hi, my name is alice and i like to travel!");
 });
